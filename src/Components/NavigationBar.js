@@ -5,10 +5,10 @@ import Navbar from 'react-bootstrap/Navbar';
 //Adding navigation bar to page
 const NavigationBar = () => { 
   return (
-        <Navbar bg="primary" data-bs-theme="dark"> 
+        <Navbar bg="dark" variant="dark"> 
           <Container>
-            <Navbar.Brand href="/">Cosmos Explorer</Navbar.Brand>
-            <Nav className="me-auto">
+            <Navbar.Brand href="/" className="me-auto">Cosmos Explorer</Navbar.Brand>
+           <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
             </Nav>
           </Container>
