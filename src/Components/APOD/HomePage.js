@@ -21,10 +21,10 @@ const [apodData, setApodData] = useState([]); //State to store the APOD data
 
  //Displaying APOD component with fetched data
  return (
-    <div>
+  <div style={{ textAlign: "center", fontFamily: "Sakana"}}>
       <h1><b>Welcome to Cosmos Explorer</b></h1>
       <h4>NASA's Astronomy Picture of the Day (APOD).</h4>
-      <APOD myApod={[apodData]} />{/*Displaying Apod data*/}
+      <APOD myApod={[apodData] } />{/*Displaying Apod data*/}
     </div>
   );
 };

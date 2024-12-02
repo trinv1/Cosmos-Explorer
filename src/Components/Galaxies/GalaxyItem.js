@@ -11,13 +11,12 @@ const GalaxyItem = (props) => {
 
 //displaying galaxy image and data
 return(
-    <div>
-        <h3>{props.myGalaxy.Name}</h3>
-        <h3>{props.myGalaxy.Description}</h3>
+    <div style={{ textAlign: "center" }}>
+        <h3 style={{ fontFamily: "Sakana" }}>{props.myGalaxy.Name}</h3>
+        <h3 style={{ fontFamily: "Sakana" }}>{props.myGalaxy.Description}</h3>
         <img src = {props.myGalaxy.Picture} 
         alt={props.myGalaxy.Name}
-        style={{maxWidth: "60%"}}
-            />
+        style={{maxWidth: "60%", maxHeight: "50%"}}/>
     </div>
 );
 }

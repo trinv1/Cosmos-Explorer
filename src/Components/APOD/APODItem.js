@@ -11,7 +11,7 @@ const APODItem = (props) => {
 
   //Displaying the APOD image and data
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <Card>
         <Card.Header>{props.myApod.title}</Card.Header>
         <Card.Body>
