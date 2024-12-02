@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './Components/APOD/HomePage.js';
 import NavigationBar from './Components/NavigationBar.js';
 import APOD from './Components/APOD/APOD.js';
-import GalaxyPage from './Components/GalaxyPage.js';
+import GalaxyPage from './Components/Galaxies/GalaxyPage.js';
 
 //Function that starts app
 function App() {
