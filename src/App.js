@@ -7,6 +7,7 @@ import HomePage from './Components/APOD/HomePage.js';
 import NavigationBar from './Components/NavigationBar.js';
 import APOD from './Components/APOD/APOD.js';
 import GalaxyPage from './Components/Galaxies/GalaxyPage.js';
+import FavPage from './Components/Favourites/FavPage.js';
 
 //Function that starts app
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="Apod" element={<APOD />} />
           <Route path="Galaxy" element={<GalaxyPage />} />
+          <Route path="Favourites" element={<FavPage />} />
         </Routes>
       </Router>
   );
