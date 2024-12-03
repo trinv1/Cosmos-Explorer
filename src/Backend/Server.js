@@ -18,6 +18,20 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//Connecting to database
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://admin:admin@cluster0.nokwl.mongodb.net/GalaxyDB');
+
+//Storing data in database
+const GalaxySchema = new mongoose.Schema({
+  Name:String,
+  Description:String,
+  Picture:String
+});
+
+//Generating model based on schema
+const galaxyModel = new mongoose.model('myGalaxy', GalaxySchema); 
+
 //Route for galaxies get requests
 app.get('/api/galaxies', (req, res) => {
     const galaxies = [
@@ -61,18 +75,16 @@ app.get('/api/galaxies', (req, res) => {
     res.status(201).json({ myGalaxy: galaxies });//returning JSON with status 201 
 });
 
-//Returns updated movie details
+//Returns updated movie details and saves to db
 app.post('/api/galaxies', async (req, res)=>{
     console.log("Galaxies: " + req.body.Name);
     res.send("Galaxies recieved");
     const { Name, Description, Picture } = req.body;
 
-    const newGalaxy = {
-        Name,
-        Description,
-        Picture
-    };
-})
+    const newGalaxy = new galaxyModel({Name, Description, Picture});
+    await newGalaxy.save(); 
+    res.status(201).json({ message: 'Galaxy created successfully', galaxy: newGalaxy });
+  })
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
