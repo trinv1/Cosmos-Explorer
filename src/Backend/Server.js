@@ -33,10 +33,40 @@ const GalaxySchema = new mongoose.Schema({
 const galaxyModel = new mongoose.model('myGalaxy', GalaxySchema); 
 
 //Route for galaxies get requests
-app.get('/api/galaxies', (req, res) => {
-    const galaxies = [
-        {
-            Name: "Milky Way Galaxy",
+app.get('/api/galaxies', async (req, res) => {
+    
+    //Fetching documents in movie collection
+    const galaxies = await galaxyModel.find({});
+    
+    res.status(200).json({ myGalaxy: galaxies });
+});
+
+//Searching for a particular movie by its id in browser
+app.get('/api/galaxy/:name', async (req, res) => {
+  const galaxy = await galaxyModel.findByName(req.params.name);
+  res.json(galaxy);
+});
+
+//Returns updated movie details and saves to db
+app.post('/api/galaxies', async (req, res)=>{
+  const {Name, Description, Picture } = req.body; 
+    console.log("Galaxies: " + req.body.Name);
+    const newGalaxy = new galaxyModel({Name, Description, Picture});
+    
+    //Saving movies to db
+    await newGalaxy.save(); 
+    res.status(201).json({ myGalaxy: newGalaxy });
+});
+
+
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
+
+
+
+
+/*   Name: "Milky Way Galaxy",
             Description: "The galaxy containing the Sun and its Solar System, and therefore Earth.",
             Picture: "https://upload.wikimedia.org/wikipedia/commons/4/43/ESO-VLT-Laser-phot-33a-07.jpg"
           },
@@ -69,23 +99,4 @@ app.get('/api/galaxies', (req, res) => {
             Name: "Cosmos Redshift 7",
             Type: "Galaxy",
             Description: "Galaxy Cosmos Redshift 7 is reported to be the brightest of distant galaxies and to contain some of the earliest first stars that produced the chemical elements needed for the later formation of planets and life as we know it.",
-            Picture: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Eso1524aArtist%E2%80%99s_impression_of_CR7_the_brightest_galaxy_in_the_early_Universe.jpg"
-          }
-    ];
-    res.status(201).json({ myGalaxy: galaxies });//returning JSON with status 201 
-});
-
-//Returns updated movie details and saves to db
-app.post('/api/galaxies', async (req, res)=>{
-    console.log("Galaxies: " + req.body.Name);
-    res.send("Galaxies recieved");
-    const { Name, Description, Picture } = req.body;
-
-    const newGalaxy = new galaxyModel({Name, Description, Picture});
-    await newGalaxy.save(); 
-    res.status(201).json({ message: 'Galaxy created successfully', galaxy: newGalaxy });
-  })
-
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
+            Picture: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Eso1524aArtist%E2%80%99s_impression_of_CR7_the_brightest_galaxy_in_the_early_Universe.jpg"*/
