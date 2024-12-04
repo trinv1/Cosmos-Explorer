@@ -22,17 +22,26 @@ app.use(bodyParser.json());
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://admin:admin@cluster0.nokwl.mongodb.net/GalaxyDB');
 
-//Storing data in database
+//Schema for galaxy
 const GalaxySchema = new mongoose.Schema({
   Name:String,
   Description:String,
   Picture:String
 });
 
+//Schema for Favourites
+const FavouriteGalaxySchema = new mongoose.Schema({
+  Name: String,
+  Description: String,
+  Picture: String,
+});
+
 //Generating model based on schema
 const galaxyModel = new mongoose.model('myGalaxy', GalaxySchema); 
 
-//Route for galaxies get requests
+const favouriteModel = mongoose.model('FavouriteGalaxy', FavouriteGalaxySchema);
+
+//Get route to fetch galaxies
 app.get('/api/galaxies', async (req, res) => {
     
     //Fetching documents in movie collection
@@ -41,21 +50,37 @@ app.get('/api/galaxies', async (req, res) => {
     res.status(200).json({ myGalaxy: galaxies });
 });
 
-//Searching for a particular movie by its id in browser
-app.get('/api/galaxy/:name', async (req, res) => {
-  const galaxy = await galaxyModel.findByName(req.params.name);
-  res.json(galaxy);
+//Get Route to Fetch Favourites
+app.get('/api/favourites', async (req, res) => {
+  const favourites = await favouriteModel.find();
+  res.status(200).json({ favourites });
 });
 
-//Returns updated movie details and saves to db
+//Searching for a particular movie by its name and updating
+app.put('/api/galaxy/:name', async (req, res) => {
+  const galaxy = await galaxyModel.findByNameAndUpdate(req.params.name, req.body, {new:true});
+  res.send(galaxy);
+});
+
+//Post route to update galaxy details and save to db
 app.post('/api/galaxies', async (req, res)=>{
   const {Name, Description, Picture } = req.body; 
     console.log("Galaxies: " + req.body.Name);
     const newGalaxy = new galaxyModel({Name, Description, Picture});
     
-    //Saving movies to db
+    //Saving galaxy to db
     await newGalaxy.save(); 
     res.status(201).json({ myGalaxy: newGalaxy });
+});
+
+//Post route to update galaxy details and save to db
+app.post('/api/favourites', async (req, res)=>{
+  const {Name, Description, Picture } = req.body; 
+    console.log("Galaxies: " + req.body.Name);
+    const newFavourite = new favouriteModel({Name, Description, Picture});
+    
+    //Saving favourite to db
+    await newFavourite.save(); 
 });
 
 

@@ -8,6 +8,7 @@ import NavigationBar from './Components/NavigationBar.js';
 import APOD from './Components/APOD/APOD.js';
 import GalaxyPage from './Components/Galaxies/GalaxyPage.js';
 import FavPage from './Components/Favourites/FavPage.js';
+import Edit from './Components/Edit';
 
 //Function that starts app
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="Apod" element={<APOD />} />
           <Route path="Galaxy" element={<GalaxyPage />} />
           <Route path="Favourites" element={<FavPage />} />
+          <Route path="Edit" element={<Edit />} />
         </Routes>
       </Router>
   );

@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { Card } from "react-bootstrap";
+import axios from "axios";
+import Galaxy from "./Galaxy";
 
 const GalaxyItem = (props) => { 
 
@@ -10,7 +12,14 @@ const GalaxyItem = (props) => {
     },[props.myGalaxy]
 )
 
-//displaying galaxy image and data
+//Function to handle saving to favourites
+const saveToFavourites = () => {
+    axios.post('http://localhost:4000/api/favourites', props.myGalaxy)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.error(err));
+};
+
+//displaying galaxy image, data and save button
 return(
     <div style={{ textAlign: "center" }}>
         <h3 style={{ fontFamily: "Sakana" }}>{props.myGalaxy.Name}</h3>
@@ -18,6 +27,12 @@ return(
         <img src = {props.myGalaxy.Picture} 
         alt={props.myGalaxy.Name}
         style={{maxWidth: "60%", maxHeight: "50%"}}/>
+        
+        <button onClick={saveToFavourites} 
+        className="btn btn-secondary" 
+        style={{ marginTop: "10px" }}>
+            Save to Favourites
+        </button>
     </div>
 );
 }
