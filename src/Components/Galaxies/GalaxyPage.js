@@ -36,9 +36,7 @@ const Reload = () => {
   //Collects form input, creates a movie object, and sends it to the backend API
     const handleSubmit = (e) => { 
     e.preventDefault();
-    
-    console.log(`Name: ${Name}, Description: ${Description}, Picture: ${Picture}`);
-    
+        
     const galaxy = {
       Name: Name,
       Description: Description,

@@ -27,7 +27,6 @@ return(
         <img src = {props.myGalaxy.Picture} 
         alt={props.myGalaxy.Name}
         style={{maxWidth: "60%", maxHeight: "50%"}}/>
-        
         <button onClick={saveToFavourites} 
         className="btn btn-secondary" 
         style={{ marginTop: "10px" }}>

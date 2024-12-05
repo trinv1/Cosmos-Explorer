@@ -8,7 +8,7 @@ const Galaxy = (props) => {
     //Rendering movie item from each movie
     return props.myGalaxy.map( 
         (galaxy)=>{
-            return <GalaxyItem myGalaxy={galaxy} key={galaxy.Name} style={{ maxWidth: "10px" }}/>
+            return <GalaxyItem myGalaxy={galaxy} key={galaxy._id} style={{ maxWidth: "10px" }}/>
         }
     );
 };

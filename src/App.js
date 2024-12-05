@@ -23,7 +23,7 @@ function App() {
           <Route path="Apod" element={<APOD />} />
           <Route path="Galaxy" element={<GalaxyPage />} />
           <Route path="Favourites" element={<FavPage />} />
-          <Route path="Edit" element={<Edit />} />
+          <Route path="/edit/:id" element={<Edit />} />
         </Routes>
       </Router>
   );

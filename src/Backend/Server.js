@@ -45,24 +45,29 @@ const favouriteModel = mongoose.model('FavouriteGalaxy', FavouriteGalaxySchema);
 app.get('/api/galaxies', async (req, res) => {
     
     //Fetching documents in movie collection
-    const galaxies = await galaxyModel.find({});
-    
+    const galaxies = await galaxyModel.find({});   
     res.status(200).json({ myGalaxy: galaxies });
 });
 
 //Get Route to Fetch Favourites
 app.get('/api/favourites', async (req, res) => {
-  const favourites = await favouriteModel.find();
+  const favourites = await favouriteModel.find({});
   res.status(200).json({ favourites });
 });
 
-//Searching for a particular movie by its name and updating
-app.put('/api/galaxy/:name', async (req, res) => {
-  const galaxy = await galaxyModel.findByNameAndUpdate(req.params.name, req.body, {new:true});
-  res.send(galaxy);
+//Searching for a particular galaxy by its id
+app.get('/api/favourites/:id', async (req, res) => {
+  const galaxy = await favouriteModel.findById(req.params.id);
+  res.json(galaxy);
 });
 
-//Post route to update galaxy details and save to db
+//Updating galaxy
+app.put('/api/favourites/:id', async (req, res) => {
+      let galaxy = await favouriteModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      res.status(200).json(galaxy); 
+});
+
+//Post route to add galaxy details and save to db
 app.post('/api/galaxies', async (req, res)=>{
   const {Name, Description, Picture } = req.body; 
     console.log("Galaxies: " + req.body.Name);
@@ -73,7 +78,7 @@ app.post('/api/galaxies', async (req, res)=>{
     res.status(201).json({ myGalaxy: newGalaxy });
 });
 
-//Post route to update galaxy details and save to db
+//Post route to add galaxy details and save to db
 app.post('/api/favourites', async (req, res)=>{
   const {Name, Description, Picture } = req.body; 
     console.log("Galaxies: " + req.body.Name);
