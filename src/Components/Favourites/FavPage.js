@@ -7,7 +7,6 @@ import { Card } from "react-bootstrap";
 
 const FavPage = () => { 
   const [favourites, setFavourites] = useState([]);
-  //let { id } = useParams();
 
 //Reloading updated galaxy data to favpage
 const Reload = () => {

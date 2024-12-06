@@ -9,13 +9,13 @@ const [apodData, setApodData] = useState([]); //State to store the APOD data
     //Fetching Nasas APOD data
     useEffect(
         ()=>{
-          axios.get('https://api.nasa.gov/planetary/apod?api_key=NVuSDMgefuJhpTZhSAMDQZkOD7DtbIeL1le6tS3s')//sending http request and run in background not causing app to freeze (asynchronous)
-          .then((response)=>{//got response back from http request
+          axios.get('https://api.nasa.gov/planetary/apod?api_key=NVuSDMgefuJhpTZhSAMDQZkOD7DtbIeL1le6tS3s')
+          .then((response)=>{
             console.log(response.data);
-            setApodData(response.data)//saving response data
+            setApodData(response.data)
           })
           .catch()
-        },[]//empty array to stop firing every time and only fire when things are updated
+        },[]//empty array to only fire when things are updated
       );
   
 
