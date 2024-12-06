@@ -1,10 +1,11 @@
-import React from 'react';
+import React from 'react';//Imports
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-export default function Edit(props) {
+export default function Edit() {
+
 //Manages state of galaxy name, description and picture
   let { id } = useParams();
   const [Name, setName] = useState("");

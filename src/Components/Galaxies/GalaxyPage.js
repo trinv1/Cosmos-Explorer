@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";//Imports
 import axios from "axios";
 import Galaxy from "./Galaxy";
 const GalaxyPage = () => { 
@@ -47,7 +47,7 @@ const Reload = () => {
     axios.post('http://localhost:4000/api/galaxies', galaxy)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.data));
-      Reload(); //Reload data after successful submission
+      Reload(); 
     
     //Clear form fields
     setName('');

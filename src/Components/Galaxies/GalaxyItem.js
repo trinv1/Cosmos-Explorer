@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from "react";//Imports
 import { Card } from "react-bootstrap";
 import axios from "axios";
 import Galaxy from "./Galaxy";

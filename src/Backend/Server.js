@@ -88,6 +88,12 @@ app.post('/api/favourites', async (req, res)=>{
     await newFavourite.save(); 
 });
 
+ //Deleting selected galaxy
+app.delete('/api/favourites/:id', async (req, res) => {
+    console.log('Deleting galaxy with ID:', req.params.id);
+    const favGalaxy = await favouriteModel.findByIdAndDelete(req.params.id);
+    res.status(200).send({ message: "Galaxy deleted successfully", favGalaxy });
+});
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
