@@ -43,33 +43,41 @@ const handleSubmit = (event) => {
 
 //Forms to edit galaxy
 return (
-    <div>
+    <div style = {{textAlign: "center", color: "gray",backgroundColor: "black"}}>
+    <h1><b>Edit Galaxy</b></h1>
+    <div style = {{backgroundColor: "black", minHeight: "100vh", marginTop: "300px"}}>
         <form onSubmit={handleSubmit}>
             <div className="form-group">
-                <label>Edit Galaxy Name: </label>
+                <label><b>Edit Galaxy Name: </b></label>
                 <input type="text" 
                 className="form-control" 
                 value={Name} 
+                style = {{maxWidth: "600px", textAlign: "center", margin: "auto"}}
                 onChange={(e) => setName(e.target.value)} />
             </div>
             <div className="form-group">
-                <label>Edit Description: </label>
+                <label><b>Edit Description: </b></label>
                 <input type="text" 
                 className="form-control" 
-                value={Description} 
+                value={Description}
+                style = {{maxWidth: "600px", textAlign: "center", margin: "auto"}} 
                 onChange={(e) => setDescription(e.target.value)} />
             </div>
             <div className="form-group">
-                <label>Edit Picture: </label>
+                <label><b>Edit Picture: </b></label>
                 <input type="text" 
                 className="form-control" 
                 value={Picture} 
+                style = {{maxWidth: "600px", textAlign: "center", margin: "auto"}}
                 onChange={(e) => setPicture(e.target.value)} />
             </div>
             <div className="form-group">
-                <input type="submit" value="Edit Galaxy" className="btn btn-primary" />
+                <input type="submit" value="Edit" className="btn btn-primary" 
+                style = {{backgroundColor: "gray"}}
+                />
             </div>
         </form>
+    </div>
     </div>
 );
 }

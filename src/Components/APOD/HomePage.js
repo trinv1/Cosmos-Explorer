@@ -21,8 +21,8 @@ const [apodData, setApodData] = useState([]); //State to store the APOD data
 
  //Displaying APOD component with fetched data and added image
  return (
-  <div style ={{ textAlign: "center", color: "white", fontFamily: "initial", backgroundColor: "black", minHeight: "100vh"}}>
-      <h1>Welcome to the Cosmos Galaxy Diary</h1>
+  <div style ={{ textAlign: "center", color: "white", fontFamily: "monospace", backgroundColor: "black", minHeight: "100vh"}}>
+      <h1><b>Welcome to the Cosmos Galaxy Diary</b></h1>
       <img src = "https://cdn.britannica.com/90/2590-050-6C33CB5C/Milky-Way-Galaxy-Earth.jpg" style={{ width: "2000px", height: "200px" }}/>
       <h4>NASA's Astronomy Picture of the Day (APOD).</h4>
       <APOD myApod={[apodData]} />{/*Displaying Apod data*/}

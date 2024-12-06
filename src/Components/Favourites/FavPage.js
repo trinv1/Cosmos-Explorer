@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 const FavPage = () => { 
   const [favourites, setFavourites] = useState([]);
@@ -38,20 +39,26 @@ useEffect(() => {
   };
 
 return (
-  <div style={{ textAlign: "center" }}>
-      <h1>Favourite Galaxies</h1>
+  <div style={{ fontFamily: "monospace", color: "white", textAlign: "center", backgroundColor: "black"}}>
+      <h1><b>Favourite Galaxies</b></h1>
       
       {/*Mapping over favourites and displaying*/}
       {favourites.map((favourite) => (
-          <div key={favourite._id}>
+          <Card>
+          <div key={favourite._id} style = {{fontSize: "20px", fontFamily: "monospace", backgroundColor: "black", textAlign: "center",  color: "white", padding: "30px", border: "10px solid white"}}>
               <h2>{favourite.Name}</h2>
               <p>{favourite.Description}</p>
               <img style={{ maxWidth: "1000px"}} src={favourite.Picture} alt={favourite.Name}  />
-              <Link to={"/edit/" + favourite._id} className="btn btn-primary">Edit</Link>              
-             <Button onClick={(e)=>deleteGalaxy(e, favourite._id)} className="btn btn-secondary" style={{ marginTop: "10px" }}>
-                Delete
+              <Link to={"/edit/" + favourite._id} className="btn btn-primary"
+                style={{ marginTop: "-1000px", marginRight: "1150px", backgroundColor: "orange", width: "100px", height: "50px", fontSize: "20px", fontFamily: "monospace"}}> 
+                <b>Edit</b>
+                </Link>              
+             <Button onClick={(e)=>deleteGalaxy(e, favourite._id)} className="btn btn-secondary"
+                style={{ marginTop: "-900px", marginRight: "1150px", backgroundColor: "darkred", width: "100px", height: "50px", fontSize: "20px", fontFamily: "monospace"}}>           
+                <b>Delete</b>
               </Button>{/*Delete galaxy button*/}
           </div>        
+          </Card>
       ))}
   </div>
 );
