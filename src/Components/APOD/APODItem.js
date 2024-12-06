@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 const APODItem = (props) => {
   
@@ -11,17 +10,27 @@ const APODItem = (props) => {
 
   //Displaying the APOD image and data
   return (
-    <div style={{ textAlign: "center" }}>
+    <div>
       <Card>
-        <Card.Header>{props.myApod.title}</Card.Header>
-        <Card.Body>
+        <div style = {{backgroundColor:"black", color:"white", fontSize:"20px"}}>
+        {props.myApod.title}
+          </div>
           <blockquote className="blockquote mb-0">           
-                {props.myApod.media_type === "image" && (<img src = {props.myApod.url} alt={props.myApod.title}/>)}
-            <p><b>{props.myApod.explanation}</b></p>
-            <p>{props.myApod.date}</p>
+
+                {/*Moving data to left of screen and styling*/}
+                <div style = {{textAlign: "left", backgroundColor: "black", border: "8px gray"}}>
+                  {props.myApod.media_type === "image" && 
+                  (<img src = {props.myApod.url} 
+                  alt={props.myApod.title}/>)}
+                </div>  
+            
+                {/*Moving data to right of screen and styling*/}
+                <div style = {{textAlign: "left", marginLeft: "900px", marginTop: "-400px", backgroundColor: "black", color: "gray", fontFamily: "initial"}}>
+              <p>{props.myApod.explanation}</p>
+              <p><b>{props.myApod.date}</b></p>
+              </div> 
           </blockquote>
-        </Card.Body>
-      </Card>
+          </Card>
     </div>
   );
 };
