@@ -21,18 +21,22 @@ const saveToFavourites = () => {
 
 //displaying galaxy image, data and save button
 return(
-    <div style={{ textAlign: "center" }}>
-        <h3 style={{ fontFamily: "Sakana" }}>{props.myGalaxy.Name}</h3>
+    <Card>
+    <div style={{ textAlign: "center",  color: "white", backgroundColor: "black", padding: "30px"}}>
+        <h3 style={{ fontFamily: "Sakana" }}><b>{props.myGalaxy.Name}</b></h3>
         <h3 style={{ fontFamily: "Sakana" }}>{props.myGalaxy.Description}</h3>
         <img src = {props.myGalaxy.Picture} 
         alt={props.myGalaxy.Name}
-        style={{maxWidth: "60%", maxHeight: "50%"}}/>
-        <button onClick={saveToFavourites} 
+        style={{maxWidth: "45%", maxHeight: "40%", border: "white 2px",}}/>
+        </div>
+    <div>
+    <button onClick={saveToFavourites} 
         className="btn btn-secondary" 
-        style={{ marginTop: "10px" }}>
-            Save to Favourites
+        style={{ marginTop: "-900px", marginRight: "1000px", backgroundColor: "gray", width: "80px", height: "80px", fontSize: "50px"}}>
+              &hearts;
         </button>
     </div>
+    </Card>
 );
 }
 

@@ -61,14 +61,15 @@ useEffect(() => {
 }, []);
 
   return (
-    <div>
+    <div style = {{backgroundColor: "black", textAlign: "center"}}>
       {/*Handling name input*/}
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Add Galaxy Name: </label>
+        <div className="form-group" style = {{color: "white", textAlign: "center"}}>
+          <label>Galaxy Name: </label>
           <input type="text" 
             className="form-control"
             value={Name}
+            style = {{maxWidth: "300px", textAlign: "center", margin: "auto"}}
             onChange={(e) => { setName(e.target.value) }}    
          />
         </div>
@@ -76,11 +77,12 @@ useEffect(() => {
 
         {/*Handling description input*/}
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Add Galaxy Description: </label>
+        <div className="form-group" style = {{color: "white"}}>
+          <label>Galaxy Description: </label>
           <input type="text" 
             className="form-control"
             value={Description}
+            style = {{maxWidth: "300px", textAlign: "center", margin: "auto"}}
             onChange={(e) => { setDescription(e.target.value) }}
          />
         </div>
@@ -88,15 +90,16 @@ useEffect(() => {
 
         {/*Handling picture input*/}
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Add Galaxy Picture: </label>
+        <div className="form-group" style = {{color: "white"}}>
+          <label>Galaxy Picture: </label>
           <input type="text" 
             className="form-control"
             value={Picture}
+            style = {{maxWidth: "300px", textAlign: "center", margin: "auto"}}
             onChange={(e) => { setPicture(e.target.value) }}
          />
         </div>
-        <input type="submit" value="Add Galaxy" />
+        <input type="submit" value="Add" />
       </form>
 
      {/*Displaying galaxy data*/}
