@@ -12,7 +12,7 @@ const APODItem = (props) => {
   return (
     <div>
       <Card>
-        <div style = {{backgroundColor:"black", color:"white", fontSize:"20px"}}>
+        <div style = {{backgroundColor:"black", color:"gray", fontSize:"20px"}}>
         {props.myApod.title}
           </div>
           <blockquote className="blockquote mb-0">           

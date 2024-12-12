@@ -30,10 +30,10 @@ return(
         style={{maxWidth: "45%", maxHeight: "40%", border: "10px solid white"}}/>
         </div>
     <div>
-    <button onClick={saveToFavourites} 
+    <button onClick={saveToFavourites} //Save to favourites button
         className="btn btn-secondary" 
         style={{ marginTop: "-900px", marginRight: "1000px", backgroundColor: "lightpink", width: "80px", height: "80px", fontSize: "50px"}}>
-              &hearts;
+              &hearts;{/*Heart symbol*/}
         </button>
     </div>
     </Card>
