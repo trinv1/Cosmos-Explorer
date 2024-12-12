@@ -3,6 +3,7 @@ import axios from "axios";
 import Galaxy from "./Galaxy";
 const GalaxyPage = () => { 
 
+//Storing state
 const[galaxies, setGalaxies] = useState([]);
 const [Name, setName] = useState('');
 const [Description, setDescription] = useState('');
@@ -45,9 +46,10 @@ const Reload = () => {
     
     //Post request for when user hits submit
     axios.post('http://localhost:4000/api/galaxies', galaxy)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err.data));
+    .then((res) => {
       Reload(); 
+    })
+    .catch((err) => console.log(err));
     
     setName('');
     setDescription('');

@@ -49,7 +49,7 @@ return (
           <Card>
           <div key={favourite._id} style = {{fontSize: "20px", fontFamily: "monospace", backgroundColor: "black", textAlign: "center",  color: "white", padding: "30px", border: "10px solid white"}}>
               <h2>{favourite.Name}</h2>
-              <p>{favourite.Description}</p>
+              <p>{favourite.Description}</p>             
               <img style={{ maxWidth: "1000px", border: "10px solid white", display: "block", margin: "0 auto"}} src={favourite.Picture} alt={favourite.Name}  />
               <Link to={"/edit/" + favourite._id} className="btn btn-primary"
                 style={{ marginTop: "-1000px", marginRight: "1150px", backgroundColor: "orange", width: "100px", height: "50px", fontSize: "20px", fontFamily: "monospace"}}> 
