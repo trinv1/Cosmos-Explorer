@@ -18,10 +18,10 @@ useEffect(
       setGalaxies(response.data.myGalaxy)//Saving response data
     })
     .catch()
-  },[]//empty array to only fire when things are updated
+  },[]
 );
 
-//The Reload function fetches the updated movie list from the server and updates the state with the new data
+//Fetching updated list and updates state
 const Reload = () => {
   console.log("Reloading galaxy data...");
   axios.get('http://localhost:4000/api/galaxies')
@@ -33,7 +33,7 @@ const Reload = () => {
       });
 };
 
-  //Collects form input, creates a movie object, and sends it to the backend API
+  //Handling new galaxy submission
     const handleSubmit = (e) => { 
     e.preventDefault();
         
@@ -49,7 +49,6 @@ const Reload = () => {
       .catch((err) => console.log(err.data));
       Reload(); 
     
-    //Clear form fields
     setName('');
     setDescription('');
     setPicture('');

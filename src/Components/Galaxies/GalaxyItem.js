@@ -5,7 +5,7 @@ import Galaxy from "./Galaxy";
 
 const GalaxyItem = (props) => { 
 
-  //UseEffect runs whenever props.myGalaxy changes and logs the updated Galaxy data to the console
+  //Logging props change to console
   useEffect( 
     ()=>{
         console.log("Galaxies:", props.myGalaxy);

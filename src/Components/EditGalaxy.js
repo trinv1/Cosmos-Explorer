@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Edit() {
 
-//Manages state of galaxy name, description and picture
+//Manages states, extracts id and enforces naviagation
   let { id } = useParams();
   const [Name, setName] = useState("");
   const [Description, setDescription] = useState("");
@@ -25,7 +25,6 @@ export default function Edit() {
             console.log(error);
         });
 }, [id]);
-
 
 //Triggers when user submits form
 const handleSubmit = (event) => {

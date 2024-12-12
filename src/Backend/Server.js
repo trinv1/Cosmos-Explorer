@@ -22,14 +22,13 @@ app.use(bodyParser.json());
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://admin:admin@cluster0.nokwl.mongodb.net/GalaxyDB');
 
-//Schema for galaxy
+//Schemas
 const GalaxySchema = new mongoose.Schema({
   Name:String,
   Description:String,
   Picture:String
 });
 
-//Schema for Favourites
 const FavouriteGalaxySchema = new mongoose.Schema({
   Name: String,
   Description: String,
@@ -44,7 +43,7 @@ const favouriteModel = mongoose.model('FavouriteGalaxy', FavouriteGalaxySchema);
 //Get route to fetch galaxies
 app.get('/api/galaxies', async (req, res) => {
     
-    //Fetching documents in movie collection
+    //Fetching documents in galaxy collection
     const galaxies = await galaxyModel.find({});   
     res.status(200).json({ myGalaxy: galaxies });
 });

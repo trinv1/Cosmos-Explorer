@@ -1,3 +1,6 @@
+//Innovation: Letting user add favourites galaxies to a seperate favourites page
+//and edit them as they please  
+
 import axios from "axios";//Imports
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -8,7 +11,7 @@ import { Card } from "react-bootstrap";
 const FavPage = () => { 
   const [favourites, setFavourites] = useState([]);
 
-//Reloading updated galaxy data to favpage
+//Reloading favourites
 const Reload = () => {
   axios.get('http://localhost:4000/api/favourites')
       .then((response) => {
